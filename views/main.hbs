@@ -8,6 +8,16 @@
 <body>
     <h1>MengodbCurd</h1>
     {{message}}
+    <h1>create</h1><br>
+    <div >
+        <form method="post" action="/stored-book">
+        <label for="">title</label>
+        <input type="text" name="title"><br><br>
+        <label for="">author</label>
+        <input type="text" name="author">
+        <input type="submit">
+        </form>
+    </div>
     <div>
         <ul>
             {{#each employee}}
