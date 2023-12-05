@@ -8,6 +8,13 @@
 <body>
     <h1>MengodbCurd</h1>
     {{message}}
+    <div>
+        <ul>
+            {{#each employee}}
+            <li>{{this.title}}-{{this.author}}</li>
+            {{/each}}
+        </ul>
+    </div>
     
 </body>
 </html>
