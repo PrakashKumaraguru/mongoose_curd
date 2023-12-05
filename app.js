@@ -10,10 +10,16 @@ app.set('view engine','hbs');
 app.set('views','views');
 
 
-app.get('/', (req,res)=>{
+app.get('/', async(req,res)=>{
+    let database = await dob.getDataBase();
+    const collection = database.collection('books');
+    const curser = collection.find({});
+    let employee  = await curser.toArray();
+
     let message = 'Hello World';
-    res.render('main', {message})
+    res.render('main', {message,employee})
 })
+
 app.listen(8090,()=>{
     console.log('listening on port 8090');
 })
