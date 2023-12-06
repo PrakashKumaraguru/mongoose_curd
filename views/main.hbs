@@ -33,7 +33,7 @@
     {{/if}}
     <div>
         <ul>
-            {{#each employee}}
+            {{#each books}}
             <li>{{this.title}}-{{this.author}} <a href="/?edit_id={{this._id}}">Edit</a>       <a href="/?delete_id={{this._id}}" onclick="return confirm('are you sure ?')">Delete</a></li>
             {{/each}}
         </ul>
