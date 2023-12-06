@@ -1,19 +1,21 @@
+const mongodb = require('mongodb')
+const Mongoclient = mongodb.MongoClient;
+const ObjectID = mongodb.ObjectId;
 
-const mongoose = require('mongoose');
 
-
-
+let database;
 async function getDataBase(){
+    const client = await Mongoclient.connect('mongodb://127.0.0.1:27017/');
 
-   mongoose.connect('mongodb://127.0.0.1:27017/library')
-   .then(()=>{
-    console.log('database connection established');
-   }).catch(()=>{
-    console.log('database connection Error!');
-   })
+    database = client.db('library')
+    if (!database) {
+        console.log('database is not available ');
+    }else{
+        return database;
+    }
 
 }
 module.exports = {
-    getDataBase
-   
+    getDataBase,
+    ObjectID
 }
